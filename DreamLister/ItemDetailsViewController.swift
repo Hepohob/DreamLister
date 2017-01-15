@@ -16,6 +16,10 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
     @IBOutlet weak var priceField: CustomTextField!
     @IBOutlet weak var detailsField: CustomTextField!
     
+    var stores = [Store]()
+    var itemToEdit: Item?
+    var imagePicker: UIImagePickerController!
+
     
     @IBAction func savePressed(_ sender: UIButton) {
         var item: Item!
@@ -38,9 +42,14 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
         _ = navigationController?.popViewController(animated: true)
     }
     
-    var stores = [Store]()
-    var itemToEdit: Item?
-    var imagePicker: UIImagePickerController!
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+        }
+        _ = navigationController?.popViewController(animated: true)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +62,7 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
         }
         storePicker.delegate = self
         storePicker.dataSource = self
+        
         
 //        let store = Store(context: context)
 //        store.name = "Best buy"
@@ -92,7 +102,7 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
+        // update when selected
     }
 
     //MARK: Coredata store/read
@@ -129,14 +139,5 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
             
         }
     }
-    
-    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
-        if itemToEdit != nil {
-            context.delete(itemToEdit!)
-            ad.saveContext()
-        }
-        _ = navigationController?.popViewController(animated: true)
-    }
-    
     
 }

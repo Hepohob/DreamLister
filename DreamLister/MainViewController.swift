@@ -118,28 +118,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
+
+        switch(type) {
+            
+        case.insert:
             if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
             break
-        
-        case .delete:
-            if let indexPath = newIndexPath {
+        case.delete:
+            if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             break
-            
-        case .update:
-            if let indexPath = newIndexPath {
+        case.update:
+            if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
                 configureCell(cell: cell, indexPath: indexPath)
             }
             break
-            
-        case .move:
-            if let indexPath = newIndexPath {
+        case.move:
+            if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
             if let indexPath = newIndexPath {
@@ -148,6 +147,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             break
             
         }
+
     }
     
     func generateTestData() {
