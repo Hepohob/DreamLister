@@ -211,9 +211,12 @@
                                 <rect key="frame" x="24" y="614" width="327" height="33"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Save items">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="rPL-PZ-iAs" eventType="touchUpInside" id="7ma-Tt-xaL"/>
+                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-S3-IqS">
                                 <rect key="frame" x="28" y="368" width="320" height="216"/>
@@ -250,6 +253,12 @@
                             <color key="tintColor" red="1" green="0.16240721400272906" blue="0.072508852346404029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailsField" destination="Zla-TY-kD5" id="vEP-KL-De9"/>
+                        <outlet property="priceField" destination="PnL-p5-oE5" id="3X2-AM-jbV"/>
+                        <outlet property="storePicker" destination="OAs-S3-IqS" id="Pg9-mX-B0l"/>
+                        <outlet property="titleField" destination="SbL-ld-ftA" id="cba-xz-pdK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPy-F6-cEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

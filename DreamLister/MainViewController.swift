@@ -33,6 +33,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         attemptFetch()
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let objs = controller.fetchedObjects , objs.count > 0 {
+            
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: Storyboard.SegueItemDetails, sender: item)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.SegueItemDetails {
+            if let destination = segue.destination as? ItemDetailsViewController {
+                if let item = sender as? Item {
+                    destination.itemToEdit = item
+                }
+            }
+        }
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if let sections = controller.sections {
             return sections.count
@@ -73,6 +93,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                     managedObjectContext: context,
                                                     sectionNameKeyPath: nil,
                                                     cacheName: nil)
+        
+        controller.delegate = self
         
         self.controller = controller
 
