@@ -21,20 +21,42 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
+//        generateTestData()
+        
+        attemptFetch()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let sections = controller.sections {
+            return sections.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let sections = controller.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Item cell", for: indexPath) as! ItemCell
+        configureCell(cell: cell, indexPath: indexPath)
+        return cell
     }
+    
+    func configureCell(cell:ItemCell, indexPath:IndexPath) {
+        // update cell
+        let item = controller.object(at: indexPath)
+        cell.configureCell(item: item)
+      }
     
     func attemptFetch() {
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
@@ -46,6 +68,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                                                     sectionNameKeyPath: nil,
                                                     cacheName: nil)
         
+        self.controller = controller
+
         do {
             try controller.performFetch()
         } catch {
@@ -80,7 +104,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         case .update:
             if let indexPath = newIndexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
-                // update the cell data
+                configureCell(cell: cell, indexPath: indexPath)
             }
             break
             
@@ -96,7 +120,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    
+    func generateTestData() {
+        let item1 = Item(context: context)
+        item1.title = "New MacBook PRO"
+        item1.price = 1983
+        item1.details = "I wont new mac until next year. And its just joke!"
+        
+        let item2 = Item(context: context)
+        item2.title = "Bose headphones"
+        item2.price = 289
+        item2.details = "Holen Sie das Beste aus Ihrem Beats Pill, Studio Wireless oder Powerbeats"
+        
+        let item3 = Item(context: context)
+        item3.title = "Mercedes"
+        item3.price = 73000
+        item3.details = "With intelligent aerodynamic measures like the restyled front apron and the spoiler lip on the roof"
+        
+        ad.saveContext()
+    }
     
     
 }
