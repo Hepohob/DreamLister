@@ -16,6 +16,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var controller: NSFetchedResultsController<Item>!
     
+    struct Storyboard {
+        static let CellID = "Item cell"
+        static let SegueItemDetailsNew = "Segue Item Details New"
+        static let SegueItemDetails = "Segue Item Details"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +53,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Item cell", for: indexPath) as! ItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.CellID, for: indexPath) as! ItemCell
         configureCell(cell: cell, indexPath: indexPath)
         return cell
     }
