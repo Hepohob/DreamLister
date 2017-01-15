@@ -114,6 +114,8 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
             self.storePicker.reloadAllComponents()
         } catch {
             // handle error
+            let error = error as NSError
+            print(error)
         }
     }
     

@@ -86,7 +86,6 @@
 				47EA4F291E2B97E0002FF790 /* AppDelegate.swift */,
 				47EA4F331E2B97E0002FF790 /* Assets.xcassets */,
 				47EA4F381E2B97E0002FF790 /* Info.plist */,
-				47EA4F301E2B97E0002FF790 /* DreamLister.xcdatamodeld */,
 			);
 			path = DreamLister;
 			sourceTree = "<group>";
@@ -94,6 +93,7 @@
 		47EA4F4E1E2B9C42002FF790 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				47EA4F301E2B97E0002FF790 /* DreamLister.xcdatamodeld */,
 				47EA4F951E2C0D3D002FF790 /* Image+CoreDataClass.swift */,
 				47EA4F961E2C0D3D002FF790 /* Image+CoreDataProperties.swift */,
 				47EA4F971E2C0D3D002FF790 /* Store+CoreDataClass.swift */,
