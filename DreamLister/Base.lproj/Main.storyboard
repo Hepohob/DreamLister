@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Item cell" rowHeight="150" id="kdL-Jd-m1X" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Item cell" rowHeight="150" id="kdL-Jd-m1X" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kdL-Jd-m1X" id="DXf-DV-u75">
@@ -251,6 +251,9 @@
                     <navigationItem key="navigationItem" title="Add/Edit" id="xjh-JC-4Eh">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="tWw-Rp-fJe">
                             <color key="tintColor" red="1" green="0.16240721400272906" blue="0.072508852346404029" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="rPL-PZ-iAs" id="l4h-G6-wOJ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

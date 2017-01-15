@@ -18,7 +18,12 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     
     @IBAction func savePressed(_ sender: UIButton) {
-        let item = Item(context: context)
+        var item: Item!
+        if itemToEdit == nil {
+            item = Item(context: context)
+        } else {
+            item = itemToEdit
+        }
         if let title = titleField.text {
             item.title = title
         }
@@ -65,9 +70,13 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
 //        ad.saveContext()
         
         getStores()
+        
+        if itemToEdit != nil {
+            loadItemData()
+        }
     }
 
-    //MARK: picke delegates and datasources
+    //MARK: picker delegates and datasources
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = stores[row]
@@ -86,6 +95,8 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
         
     }
 
+    //MARK: Coredata store/read
+    
     func getStores() {
         let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
         do {
@@ -95,4 +106,37 @@ class ItemDetailsViewController: UIViewController, UIPickerViewDataSource, UIPic
             // handle error
         }
     }
+    
+    func loadItemData() {
+        if let item = itemToEdit {
+            titleField.text = item.title
+            priceField.text = "\(item.price)"
+            detailsField.text = item.details
+            
+            if let store = item.toStore {
+                var index = 0
+                repeat {
+                    let s = stores[index]
+                    if s.name == store.name {
+                        storePicker.selectRow(index,
+                                                inComponent: 0,
+                                                animated: false)
+                        break
+                    }
+                    index += 1
+                } while (index < stores.count)
+            }
+            
+        }
+    }
+    
+    @IBAction func deletePressed(_ sender: UIBarButtonItem) {
+        if itemToEdit != nil {
+            context.delete(itemToEdit!)
+            ad.saveContext()
+        }
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

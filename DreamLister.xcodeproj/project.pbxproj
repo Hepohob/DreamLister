@@ -80,13 +80,11 @@
 		47EA4F281E2B97E0002FF790 /* DreamLister */ = {
 			isa = PBXGroup;
 			children = (
+				47EA4F8E1E2BA9AF002FF790 /* Controllers */,
 				47EA4F7B1E2BA5AE002FF790 /* View */,
 				47EA4F4E1E2B9C42002FF790 /* Model */,
 				47EA4F291E2B97E0002FF790 /* AppDelegate.swift */,
-				47EA4F8E1E2BA9AF002FF790 /* Controllers */,
-				47EA4F2D1E2B97E0002FF790 /* Main.storyboard */,
 				47EA4F331E2B97E0002FF790 /* Assets.xcassets */,
-				47EA4F351E2B97E0002FF790 /* LaunchScreen.storyboard */,
 				47EA4F381E2B97E0002FF790 /* Info.plist */,
 				47EA4F301E2B97E0002FF790 /* DreamLister.xcdatamodeld */,
 			);
@@ -111,6 +109,8 @@
 		47EA4F7B1E2BA5AE002FF790 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				47EA4F351E2B97E0002FF790 /* LaunchScreen.storyboard */,
+				47EA4F2D1E2B97E0002FF790 /* Main.storyboard */,
 				47EA4F8F1E2BA9DD002FF790 /* ItemCell.swift */,
 				47EA4F7C1E2BA5D0002FF790 /* MaterialView.swift */,
 				47EA4F931E2BC186002FF790 /* CustomTextField.swift */,
