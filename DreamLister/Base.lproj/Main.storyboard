@@ -170,6 +170,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rm6-Me-RY7">
                                 <rect key="frame" x="8" y="72" width="100" height="100"/>
+                                <connections>
+                                    <action selector="addImage:" destination="rPL-PZ-iAs" eventType="touchUpInside" id="PcY-D6-KMR"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SbL-ld-ftA" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="116" y="82" width="251" height="40"/>
@@ -258,6 +261,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailsField" destination="Zla-TY-kD5" id="vEP-KL-De9"/>
+                        <outlet property="pickImage" destination="uUU-lK-kH4" id="HhE-RH-2D3"/>
                         <outlet property="priceField" destination="PnL-p5-oE5" id="3X2-AM-jbV"/>
                         <outlet property="storePicker" destination="OAs-S3-IqS" id="Pg9-mX-B0l"/>
                         <outlet property="titleField" destination="SbL-ld-ftA" id="cba-xz-pdK"/>
