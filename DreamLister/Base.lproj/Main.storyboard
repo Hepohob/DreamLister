@@ -31,6 +31,7 @@
                                     <segment title="Date"/>
                                     <segment title="Price"/>
                                     <segment title="Title"/>
+                                    <segment title="Type"/>
                                 </segments>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -227,6 +228,25 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-S3-IqS">
                                 <rect key="frame" x="28" y="368" width="320" height="216"/>
                             </pickerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="C0U-3O-oeh">
+                                <rect key="frame" x="22" y="315" width="331" height="29"/>
+                                <segments>
+                                    <segment title="Electronics"/>
+                                    <segment title="Cars"/>
+                                    <segment title="Computers"/>
+                                    <segment title="Other"/>
+                                </segments>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="typeSelected:" destination="rPL-PZ-iAs" eventType="valueChanged" id="87S-az-jsb"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQU-md-X8T">
+                                <rect key="frame" x="144.5" y="286" width="86.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -234,14 +254,18 @@
                             <constraint firstAttribute="trailing" secondItem="SbL-ld-ftA" secondAttribute="trailing" constant="8" id="6Bd-oo-FZ8"/>
                             <constraint firstItem="jiq-7F-lsz" firstAttribute="top" secondItem="Pa4-VB-hHs" secondAttribute="bottom" constant="20" id="9vO-Sl-1h4"/>
                             <constraint firstItem="Rm6-Me-RY7" firstAttribute="centerY" secondItem="uUU-lK-kH4" secondAttribute="centerY" id="DLm-h9-lGQ"/>
+                            <constraint firstItem="C0U-3O-oeh" firstAttribute="bottom" secondItem="0Ws-m5-Zws" secondAttribute="top" constant="-20" id="DSb-8S-2wl"/>
                             <constraint firstItem="PnL-p5-oE5" firstAttribute="top" secondItem="SbL-ld-ftA" secondAttribute="bottom" constant="10" id="EMG-fM-j83"/>
                             <constraint firstItem="Pa4-VB-hHs" firstAttribute="leading" secondItem="wot-px-Yms" secondAttribute="leadingMargin" constant="8" id="FTq-N8-j4T"/>
                             <constraint firstItem="Rm6-Me-RY7" firstAttribute="width" secondItem="uUU-lK-kH4" secondAttribute="width" id="GKn-kc-Ez5"/>
                             <constraint firstItem="SbL-ld-ftA" firstAttribute="leading" secondItem="Rm6-Me-RY7" secondAttribute="trailing" constant="8" id="Jec-C7-wkI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Pa4-VB-hHs" secondAttribute="trailing" constant="8" id="LXg-gg-kTY"/>
                             <constraint firstItem="Rm6-Me-RY7" firstAttribute="centerX" secondItem="uUU-lK-kH4" secondAttribute="centerX" id="OmE-UX-9e9"/>
+                            <constraint firstItem="GQU-md-X8T" firstAttribute="bottom" secondItem="C0U-3O-oeh" secondAttribute="top" constant="-8" id="V4f-0G-J24"/>
                             <constraint firstItem="0Ws-m5-Zws" firstAttribute="bottom" secondItem="OAs-S3-IqS" secondAttribute="top" constant="16" id="edb-CG-3Wz"/>
+                            <constraint firstItem="C0U-3O-oeh" firstAttribute="centerX" secondItem="wot-px-Yms" secondAttribute="centerX" id="iah-iN-J0c"/>
                             <constraint firstItem="uUU-lK-kH4" firstAttribute="top" secondItem="X8K-Hy-fTa" secondAttribute="bottom" constant="8" id="kHS-M5-5Id"/>
+                            <constraint firstItem="GQU-md-X8T" firstAttribute="centerX" secondItem="wot-px-Yms" secondAttribute="centerX" id="kJC-e6-NDN"/>
                             <constraint firstItem="Rm6-Me-RY7" firstAttribute="height" secondItem="uUU-lK-kH4" secondAttribute="height" id="kJF-Jd-i2i"/>
                             <constraint firstAttribute="trailing" secondItem="Zla-TY-kD5" secondAttribute="trailing" constant="8" id="lty-VW-GFG"/>
                             <constraint firstAttribute="trailing" secondItem="PnL-p5-oE5" secondAttribute="trailing" constant="8" id="moX-ON-IAY"/>
@@ -268,6 +292,7 @@
                         <outlet property="priceField" destination="PnL-p5-oE5" id="3X2-AM-jbV"/>
                         <outlet property="storePicker" destination="OAs-S3-IqS" id="Pg9-mX-B0l"/>
                         <outlet property="titleField" destination="SbL-ld-ftA" id="cba-xz-pdK"/>
+                        <outlet property="typeSegments" destination="C0U-3O-oeh" id="64X-vp-B5N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPy-F6-cEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
